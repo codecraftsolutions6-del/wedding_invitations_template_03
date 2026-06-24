@@ -208,12 +208,19 @@ html,body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Cormorant G
   color:#ffffff;margin-bottom:6px;
   text-shadow:0 1px 8px rgba(0,0,0,.45),0 0 20px rgba(0,0,0,.25);
 }
-.names-line{
+.names-line{display:block;}
+.nm-name{
   display:block;font-family:'Great Vibes',cursive;
   font-size:clamp(52px,14vw,70px);color:#ffffff;
   line-height:1.06;
   text-shadow:0 2px 0 rgba(0,0,0,.35),0 4px 18px rgba(0,0,0,.5),0 0 40px rgba(0,0,0,.2);
   -webkit-text-stroke:0.5px rgba(255,255,255,0.6);
+}
+.nm-amp{
+  display:block;font-family:'Great Vibes',cursive;
+  font-size:clamp(30px,8vw,42px);color:var(--gold-l);
+  line-height:1;margin:-2px 0;
+  text-shadow:0 2px 10px rgba(0,0,0,.4);
 }
 
 /* gold diamond divider — dark sage green */
@@ -451,20 +458,23 @@ html,body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Cormorant G
 .cd-unit{display:block;font-family:'Raleway',sans-serif;font-size:clamp(7px,2vw,9px);letter-spacing:.22em;text-transform:uppercase;color:var(--gold-l);margin-top:4px;}
 
 /* ── RSVP ── */
-.rsvp-head{font-family:'Cinzel',serif;font-size:clamp(14px,3.8vw,17px);color:var(--white);margin-bottom:4px;}
-.rsvp-note{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(12px,3.2vw,14px);color:var(--tm);margin-bottom:14px;}
+.rsvp-head{font-family:'Cinzel',serif;font-size:clamp(14px,3.8vw,17px);color:var(--white);margin-bottom:14px;}
 .ct-row{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.1);}
 .ct-row:last-child{border-bottom:none;}
 .ct-name{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(15px,4vw,18px);color:var(--tl);}
 .ct-phone{font-family:'Raleway',sans-serif;font-weight:500;font-size:clamp(12px,3.2vw,14px);color:var(--gold-l);letter-spacing:.04em;}
 
-/* ── bottom orchid ── */
-.orchid-bot{display:flex;justify-content:center;margin:4px 0 0;}
-.orchid-bot img{
-  width:min(250px,80%);
-  filter:drop-shadow(0 -5px 20px rgba(0,0,0,.28));
-  animation:orchFloat 5.5s ease-in-out infinite;animation-delay:.8s;
-  transform:scaleX(-1);
+/* ── invite-received graphic, flowing out beneath the card ── */
+.below-card{
+  display:flex;justify-content:center;
+  margin:-26px 0 0;position:relative;z-index:-1;
+  pointer-events:none;
+}
+.below-card img{
+  width:min(300px,78%);
+  opacity:.4;
+  filter:drop-shadow(0 12px 26px rgba(0,0,0,.2));
+  animation:orchFloat 6s ease-in-out infinite;
 }
 
 /* ── ornament divider ── */
@@ -631,7 +641,11 @@ html,body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Cormorant G
     <!-- TITLE — sits clearly below orchid area -->
     <div class="title-block">
       <span class="lbl-wof">— The Wedding Of —</span>
-      <span class="names-line">Mithma &amp; Thiwanka</span>
+      <span class="names-line">
+        <span class="nm-name">Mithma</span>
+        <span class="nm-amp">&amp;</span>
+        <span class="nm-name">Thiwanka</span>
+      </span>
     </div>
 
     <!-- diamond divider -->
@@ -769,9 +783,7 @@ html,body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Cormorant G
 
     <!-- ══ RSVP ══ -->
     <div class="sec">
-      <span class="sec-lbl">✦ &nbsp; RSVP</span>
       <div class="rsvp-head">Regrets Only</div>
-      <div class="rsvp-note">Kindly let us know if you are unable to attend</div>
       <div class="ct-row">
         <span class="ct-name">Thiwanka</span>
         <span class="ct-phone">076 322 0429</span>
@@ -784,14 +796,14 @@ html,body{width:100%;min-height:100vh;overflow-x:hidden;font-family:'Cormorant G
 
     <div class="hearts">♡ &nbsp; ♡ &nbsp; ♡</div>
 
-    <!-- bottom orchid -->
-    <div class="orchid-bot">
-      <img src="https://res.cloudinary.com/dbtvpkgs8/image/upload/v1782244519/13_s6gkid.png" alt="White orchid">
-    </div>
-
     <div class="card-footer">Powered by Code Craft Solutions 2026</div>
   </div>
 </div>
+
+  <!-- invite-received graphic flowing out beneath the card -->
+  <div class="below-card">
+    <img src="https://res.cloudinary.com/dbtvpkgs8/image/upload/v1782277404/You_have_received_a_Wedding_Invitation_u6nziy.png" alt="">
+  </div>
 </div>
 
 <script>
